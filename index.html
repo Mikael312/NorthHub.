@@ -572,14 +572,21 @@
             }
         }
         
-        // Get key from URL only (no demo key)
+        // Generate unique key with North_ prefix
+        function generateUniqueKey() {
+            const timestamp = Date.now().toString(36); // Convert timestamp to base36
+            const randomStr = Math.random().toString(36).substring(2, 10).toUpperCase();
+            return `North_${timestamp}${randomStr}`;
+        }
+        
+        // Get key from URL or generate new one
         function getKey() {
             const urlParams = new URLSearchParams(window.location.search);
             let key = urlParams.get('key');
             
-            // If no key, return null
+            // If no key from Lootlabs, generate unique key
             if (!key) {
-                return null;
+                key = generateUniqueKey();
             }
             
             return key;
@@ -590,52 +597,15 @@
             setTimeout(() => {
                 const key = getKey();
                 const keyDisplay = document.getElementById('keyValue');
-                const statusBadge = document.querySelector('.status-badge');
-                const statusDot = document.querySelector('.status-dot');
                 
                 if (!key) {
-                    // No key found - show error message
-                    keyDisplay.innerHTML = '<span style="color: #ff6b6b; font-size: 16px; font-weight: 600;">⚠️ Invalid Access</span>';
+                    // No key found - show error
+                    keyDisplay.innerHTML = '<span style="color: #ff6b6b; font-size: 16px;">Invalid Access - No Key Found</span>';
                     keyDisplay.style.opacity = '1';
-                    
-                    // Update status badge
-                    if (statusBadge) {
-                        statusBadge.style.background = 'rgba(220, 50, 50, 0.15)';
-                        statusBadge.style.borderColor = 'rgba(220, 50, 50, 0.3)';
-                        statusBadge.style.color = '#ff6b6b';
-                        statusBadge.innerHTML = '<span class="status-dot" style="background: #ff6b6b;"></span>No Key Found';
-                    }
-                    
-                    // Show error instruction
-                    const instructions = document.querySelector('.instructions');
-                    if (instructions) {
-                        instructions.innerHTML = `
-                            <div class="instructions-title">
-                                <span>⚠️</span>
-                                Access Denied
-                            </div>
-                            <div class="instruction-step">
-                                <span class="step-number">!</span>
-                                <span style="color: #ff6b6b;">You must complete the Lootlabs tasks to get a valid key. Direct access to this page is not allowed.</span>
-                            </div>
-                            <div class="instruction-step">
-                                <span class="step-number">1</span>
-                                <span>Run the North Hub script in your executor</span>
-                            </div>
-                            <div class="instruction-step">
-                                <span class="step-number">2</span>
-                                <span>Click "Get Key" and complete the required tasks</span>
-                            </div>
-                            <div class="instruction-step">
-                                <span class="step-number">3</span>
-                                <span>You will be redirected here with your valid key</span>
-                            </div>
-                        `;
-                    }
                     return;
                 }
                 
-                // Valid key found - display it
+                // Fade out loading animation
                 keyDisplay.style.opacity = '0';
                 
                 setTimeout(() => {
@@ -678,4 +648,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
