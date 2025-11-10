@@ -549,7 +549,7 @@
         <div class="footer">
             <p class="footer-text">© 2024 North Hub. All Rights Reserved.</p>
             <div class="footer-links">
-                <a href="#" class="https://discord.gg/83kPyNANP">Discord</a>
+                <a href="#" class="footer-link">Discord</a>
                 <a href="#" class="footer-link">Support</a>
                 <a href="#" class="footer-link">Terms</a>
             </div>
@@ -572,33 +572,17 @@
             }
         }
         
-        // Get key from URL or generate demo key
+        // Get key from URL only (no demo key)
         function getKey() {
             const urlParams = new URLSearchParams(window.location.search);
             let key = urlParams.get('key');
             
-            // If no key in URL, generate demo key (remove in production)
+            // If no key, return null
             if (!key) {
-                key = generateDemoKey();
+                return null;
             }
             
             return key;
-        }
-        
-        // Generate demo key for testing
-        function generateDemoKey() {
-            const segments = [];
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            
-            for (let i = 0; i < 4; i++) {
-                let segment = '';
-                for (let j = 0; j < 4; j++) {
-                    segment += chars.charAt(Math.floor(Math.random() * chars.length));
-                }
-                segments.push(segment);
-            }
-            
-            return 'NH-' + segments.join('-');
         }
         
         // Display key with animation
@@ -606,8 +590,52 @@
             setTimeout(() => {
                 const key = getKey();
                 const keyDisplay = document.getElementById('keyValue');
+                const statusBadge = document.querySelector('.status-badge');
+                const statusDot = document.querySelector('.status-dot');
                 
-                // Fade out loading animation
+                if (!key) {
+                    // No key found - show error message
+                    keyDisplay.innerHTML = '<span style="color: #ff6b6b; font-size: 16px; font-weight: 600;">⚠️ Invalid Access</span>';
+                    keyDisplay.style.opacity = '1';
+                    
+                    // Update status badge
+                    if (statusBadge) {
+                        statusBadge.style.background = 'rgba(220, 50, 50, 0.15)';
+                        statusBadge.style.borderColor = 'rgba(220, 50, 50, 0.3)';
+                        statusBadge.style.color = '#ff6b6b';
+                        statusBadge.innerHTML = '<span class="status-dot" style="background: #ff6b6b;"></span>No Key Found';
+                    }
+                    
+                    // Show error instruction
+                    const instructions = document.querySelector('.instructions');
+                    if (instructions) {
+                        instructions.innerHTML = `
+                            <div class="instructions-title">
+                                <span>⚠️</span>
+                                Access Denied
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-number">!</span>
+                                <span style="color: #ff6b6b;">You must complete the Lootlabs tasks to get a valid key. Direct access to this page is not allowed.</span>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-number">1</span>
+                                <span>Run the North Hub script in your executor</span>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-number">2</span>
+                                <span>Click "Get Key" and complete the required tasks</span>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-number">3</span>
+                                <span>You will be redirected here with your valid key</span>
+                            </div>
+                        `;
+                    }
+                    return;
+                }
+                
+                // Valid key found - display it
                 keyDisplay.style.opacity = '0';
                 
                 setTimeout(() => {
