@@ -15,7 +15,7 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(135deg, #0a0a0a, #1a0505, #0f0000);
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -64,14 +64,14 @@
         }
         
         .container {
-            background: rgba(20, 20, 40, 0.8);
+            background: rgba(10, 10, 15, 0.95);
             backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 50px 40px;
             max-width: 650px;
             width: 100%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(255, 0, 0, 0.3), 0 0 100px rgba(139, 0, 0, 0.2);
+            border: 1px solid rgba(220, 20, 60, 0.3);
             position: relative;
             z-index: 1;
             animation: slideUp 0.6s ease-out;
@@ -97,7 +97,7 @@
         .logo {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -105,14 +105,14 @@
             margin: 0 auto 20px;
             font-size: 36px;
             font-weight: 800;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.5);
         }
         
         h1 {
             font-size: 42px;
             font-weight: 800;
             margin-bottom: 8px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff0000 0%, #8b0000 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -129,20 +129,20 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(76, 175, 80, 0.15);
-            border: 1px solid rgba(76, 175, 80, 0.3);
+            background: rgba(220, 20, 60, 0.15);
+            border: 1px solid rgba(220, 20, 60, 0.4);
             padding: 8px 16px;
             border-radius: 50px;
             font-size: 14px;
             font-weight: 600;
-            color: #4caf50;
+            color: #ff4444;
             margin-bottom: 30px;
         }
         
         .status-dot {
             width: 8px;
             height: 8px;
-            background: #4caf50;
+            background: #ff4444;
             border-radius: 50%;
             animation: pulse 2s infinite;
         }
@@ -160,8 +160,8 @@
         
         /* Key display section */
         .key-section {
-            background: rgba(0, 0, 0, 0.3);
-            border: 2px solid rgba(102, 126, 234, 0.3);
+            background: rgba(20, 0, 0, 0.5);
+            border: 2px solid rgba(220, 20, 60, 0.4);
             border-radius: 16px;
             padding: 30px;
             margin-bottom: 25px;
@@ -176,7 +176,7 @@
             left: -2px;
             right: -2px;
             bottom: -2px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #dc143c, #8b0000);
             border-radius: 16px;
             opacity: 0;
             transition: opacity 0.3s;
@@ -184,11 +184,11 @@
         }
         
         .key-section:hover::before {
-            opacity: 0.1;
+            opacity: 0.2;
         }
         
         .key-label {
-            color: #667eea;
+            color: #ff4444;
             font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
@@ -204,8 +204,8 @@
         }
         
         .key-display {
-            background: rgba(102, 126, 234, 0.1);
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            background: rgba(220, 20, 60, 0.1);
+            border: 1px solid rgba(220, 20, 60, 0.3);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 20px;
@@ -232,7 +232,7 @@
         .loading-dot {
             width: 8px;
             height: 8px;
-            background: #667eea;
+            background: #dc143c;
             border-radius: 50%;
             animation: loadingDots 1.4s infinite;
         }
@@ -259,7 +259,7 @@
         /* Copy button */
         .copy-btn {
             width: 100%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
             color: white;
             border: none;
             padding: 16px;
@@ -274,12 +274,12 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4);
         }
         
         .copy-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.6);
         }
         
         .copy-btn:active {
@@ -305,8 +305,8 @@
         }
         
         .info-card {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(20, 0, 0, 0.3);
+            border: 1px solid rgba(220, 20, 60, 0.2);
             border-radius: 12px;
             padding: 20px;
             text-align: center;
@@ -334,15 +334,15 @@
         
         /* Instructions */
         .instructions {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(139, 0, 0, 0.1));
+            border: 1px solid rgba(220, 20, 60, 0.3);
             border-radius: 12px;
             padding: 25px;
             margin-top: 25px;
         }
         
         .instructions-title {
-            color: #667eea;
+            color: #ff4444;
             font-size: 16px;
             font-weight: 700;
             margin-bottom: 15px;
@@ -362,8 +362,8 @@
         }
         
         .step-number {
-            background: rgba(102, 126, 234, 0.2);
-            color: #667eea;
+            background: rgba(220, 20, 60, 0.2);
+            color: #ff4444;
             width: 24px;
             height: 24px;
             border-radius: 50%;
@@ -421,7 +421,7 @@
         }
         
         .footer-link {
-            color: #667eea;
+            color: #ff4444;
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
@@ -429,7 +429,7 @@
         }
         
         .footer-link:hover {
-            color: #764ba2;
+            color: #dc143c;
         }
         
         /* Responsive */
@@ -459,8 +459,8 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <div class="logo">NH</div>
-            <h1>NORTH HUB</h1>
+            <div class="logo">NM</div>
+            <h1>NIGHTMARE HUB</h1>
             <p class="subtitle">Premium Script Access</p>
         </div>
         
@@ -547,7 +547,7 @@
         
         <!-- Footer -->
         <div class="footer">
-            <p class="footer-text">© 2024 North Hub. All Rights Reserved.</p>
+            <p class="footer-text">© 2024 Nightmare Hub. All Rights Reserved.</p>
             <div class="footer-links">
                 <a href="#" class="footer-link">Discord</a>
                 <a href="#" class="footer-link">Support</a>
@@ -572,11 +572,11 @@
             }
         }
         
-        // Generate unique key with North_ prefix
+        // Generate unique key with Nightmare_ prefix (simple, no checksum)
         function generateUniqueKey() {
-            const timestamp = Date.now().toString(36); // Convert timestamp to base36
+            const timestamp = Date.now().toString(36);
             const randomStr = Math.random().toString(36).substring(2, 10).toUpperCase();
-            return `North_${timestamp}${randomStr}`;
+            return `Nightmare_${timestamp}${randomStr}`;
         }
         
         // Get key from URL or generate new one
@@ -598,14 +598,7 @@
                 const key = getKey();
                 const keyDisplay = document.getElementById('keyValue');
                 
-                if (!key) {
-                    // No key found - show error
-                    keyDisplay.innerHTML = '<span style="color: #ff6b6b; font-size: 16px;">Invalid Access - No Key Found</span>';
-                    keyDisplay.style.opacity = '1';
-                    return;
-                }
-                
-                // Fade out loading animation
+                // Display the key (generated or from URL)
                 keyDisplay.style.opacity = '0';
                 
                 setTimeout(() => {
@@ -648,4 +641,4 @@
         }
     </script>
 </body>
-    </html>
+</html>
